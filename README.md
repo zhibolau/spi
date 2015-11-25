@@ -34,7 +34,7 @@ Step 4: Remove the SPI file with rm:<br />
 <code>rm -f spi</code><br /><br /><br />
 <b>How to add more users</b><br /><br />
 You can easily add more users which are allowed to access your proxy with the command below:<br /><br />
-Debain & Ubuntu:<br />
+Debian & Ubuntu:<br />
 <code>htpasswd /etc/squid3/passwd username</code><br /><br />
 CentOS/Fedora:<br />
 <code>htpasswd /etc/squid/passwd username</code><br /><br />
