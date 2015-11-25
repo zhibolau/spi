@@ -1,5 +1,5 @@
-# squid-proxy-installer
-Squid Proxy Installer with Username-Password Authentication<br /><br /><br />
+# SPI - Squid Proxy Installer
+A Squid proxy installer with username and password authentication<br /><br /><br />
 The Squid Proxy Installer (short: SPI) is a fully automated shell script to install an anonymous HTTP proxy based on Squid 3 with a username and password authentication through NCSA Auth and htpasswd. It requires no other input than your desired username and password. The default configuration listens on the default TCP port 3128!<br /><br />
 SPI was written for the most common server Linux operating systems:
 <ul>
@@ -32,14 +32,14 @@ Fedora:<br />
 <code>./spi -fedora</code><br /><br />
 Step 4: Remove the SPI file with rm:<br />
 <code>rm -f spi</code><br /><br /><br />
-<b>How to add more users:</b><br /><br />
+<b>How to add more users</b><br /><br />
 You can easily add more users which are allowed to access your proxy with the command below:<br /><br />
 Debain & Ubuntu:<br />
 <code>htpasswd /etc/squid3/passwd username</code><br /><br />
 CentOS/Fedora:<br />
 <code>htpasswd /etc/squid/passwd username</code><br /><br />
 Replace username with the actual username of the user you want to add.<br /><br /><br />
-<strong>Domain Blacklist</strong><br /><br />
+<strong>Domain blacklist</strong><br /><br />
 You can easily block access to domains by adding them to the "blacklist.acl" file. Open the file with a text editor and add domains in this format:<br /><br />
 .domain1.com<br />
 .domain2.com<br />
