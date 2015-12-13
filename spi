@@ -1,15 +1,46 @@
 #!/bin/bash
 
-########################################################################
-# Squid Proxy Installer 1.2                                            #
-# Homepage: https://hiddenrefuge.eu.org/projects/squid-proxy-installer #
-# Copyright© 2014 - 2015 by Hidden-Refuge                              #
-# License: GNU GPL 3                                                   #
-# https://www.gnu.org/licenses/gpl.html                                #
-########################################################################
+#########################################
+# Squid Proxy Installer (SPI)           #
+# Version: 2.0 Build 2001               #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# Author: Hidden Refuge (© 2014 - 2015) #
+# License: MIT License                  #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# Project Page: https://tny.im/3kW      #
+#########################################
 
-arch=$(getconf LONG_BIT)
-rhel5 () {
+# Main function
+main()	{
+	# Declaring a few misc variables
+	vspiversion=2.0 # SPI version
+	vspibuild=2001 # SPI build number
+	vsysarch=$(getconf LONG_BIT) # System architecture
+	voption=$1 # Parameter for given options
+	
+	# Checking $voption and running corresponding function
+	case $voption in
+	'-rhel5') # If option "-rhel5" run function rhel5
+		rhel5;; # RHEL 5 Linux distributions such as Red Hat 5, CentOS 5 and et cetera
+	'-rhel6') # If option "-rhel6" run function rhel6
+		rhel6;; # RHEL 6 Linux distributions such as Red Hat 6, CentOS 6 and et cetera
+	'-rhel7') # If option "-rhel7" run function rhel7
+		rhel7;;	# RHEL 7 Linux distributions such as Red Hat 7, CentOS 7 and et cetera
+	'-debian') # If option "-debian" run fuction deb
+		deb;; # Debian "Squeeze" 6 and Debian "Wheezy" 7
+	'-jessie') # If option "-jessie" run function deb8
+		deb8;; # Debian "Jessie" 8
+	'-ubuntu') # If option "-ubuntu" run function ubt
+		ubt;; # Ubuntu
+	'-fedora') # If option "fedora" run function fed
+		fed;; # Fedora 
+	*) # If option empty or non existing run function info
+		info;; # Default, information about available options and et cetera
+	esac
+}
+
+# Function for RHEL 5 Linux distributions
+rhel5()	{
 	rpm -Uvh http://flexbox.sourceforge.net/centos/5/i386/flexbox-release-1-4.3.noarch.rpm
 	yum install perl-DBI libecap squid httpd -y
 	read -e -p "Your desired username: " usrn
@@ -122,7 +153,7 @@ fed() {
 	touch /etc/squid/blacklist.acl
 }
 info ()	{
-	echo "Squid Proxy Installer 1.1"
+	echo "Squid Proxy Installer $vspiversion $vspibuild"
 	echo ""
 	echo "Usage: ./spi <option>"
 	echo "Example for Debian 6/7: ./spi -debian"
@@ -145,21 +176,5 @@ info ()	{
 	echo "RHEL/Fedora: htpasswd /etc/squid/passwd username"
 	echo ""
 }
-case $1 in
-	'-rhel5')
-		rhel5;;
-	'-rhel6')
-		rhel6;;
-	'-rhel7')
-		rhel7;;
-	'-debian')
-		deb;;
-	'-jessie')
-		deb8;;
-	'-ubuntu')
-		ubt;;
-	'-fedora')
-		fed;;
-	*)
-		info;;
-esac
+
+main
