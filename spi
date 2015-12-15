@@ -2,7 +2,7 @@
 
 ############################################################################
 # Squid Proxy Installer (SPI)                                              #
-# Version: 2.0 Build 2007                                                  #
+# Version: 2.0 Build 2008                                                  #
 # Branch: Development (Dev)                                                #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Author: Hidden Refuge (© 2014 - 2015)                                    #
@@ -12,16 +12,14 @@
 # GitHub Repo: https://github.com/hidden-refuge/spi/                       #
 ############################################################################
 
-# Main function
 # Declaring a few misc variables
 vspiversion=2.0 # SPI version
-vspibuild=2007 # SPI build number
+vspibuild=2008 # SPI build number
 vbranch=Dev # SPI build branch
 vsysarch=$(getconf LONG_BIT) # System architecture
-voption=$1 # Parameter for given options
 	
-# Checking $voption and running corresponding function
-case $voption in
+# Checking $1 and running corresponding function
+case $1 in
 	'-rhel5') # If option "-rhel5" run function rhel5
 		rhel5;; # RHEL 5 Linux distributions such as Red Hat 5, CentOS 5 and et cetera
 	'-rhel6') # If option "-rhel6" run function rhel6
@@ -41,7 +39,7 @@ case $voption in
 esac
 
 # Function for iptables rules (CentOS 5 & 6)
-firew1()	{
+firew1 ()	{
 	# Opening default Squid port 3128 for clients to connect
 	iptables -A INPUT -p tcp --dport 3128 -j ACCEPT
 	# Saving firewall rules
@@ -49,7 +47,7 @@ firew1()	{
 }
 
 # Function for iptables rules (CentOS 7, Debian, Ubuntu, Fedora)
-firew2()	{
+firew2 ()	{
 	# Opening default Squid port 3128 for clients to connect
 	iptables -A INPUT -p tcp --dport 3128 -j ACCEPT
 	# Saving firewall rules
@@ -57,7 +55,7 @@ firew2()	{
 }
 
 # Function for RHEL 5 Linux distributions
-rhel5()	{
+rhel5 ()	{
 	# Downloading and installing necessary repo for newer Squid 3 versions for CentOS 5
 	rpm -Uvh http://flexbox.sourceforge.net/centos/5/i386/flexbox-release-1-4.3.noarch.rpm
 	# Installing necessary packages (Squid, httpd for htpasswd and dependencies)
@@ -84,7 +82,7 @@ rhel5()	{
 }
 
 # Function for RHEL 6 Linux distributions
-rhel6 () {
+rhel6 ()	{
 	# Installing necessary packages (Squid, httpd-tools for htpasswd and dependencies)
 	yum install squid httpd-tools -y
 	# Asking user to set a username via read and writing it into $usrn
@@ -107,7 +105,7 @@ rhel6 () {
 }
 
 # Function for RHEL 7 Linux distributions
-rhel7 () {
+rhel7 ()	{
 	# Installing necessary packages (Squid, httpd-tools for htpasswd and dependencies)
 	yum install squid httpd-tools -y
 	# Asking user to set a username via read and writing it into $usrn
@@ -125,7 +123,7 @@ rhel7 () {
 }
 
 # Function for Debian "Squeeze" 6 and Debian "Wheezy" 7
-deb()	{
+deb ()	{
 	# Updating package database
 	apt-get update
 	# Installing necessary packages (Squid, apache2-utils for htpassword and dependencies)
@@ -145,7 +143,7 @@ deb()	{
 }
 
 # Function for Debian "Jessie" 8
-deb8()	{
+deb8 ()	{
 	# Updating package database
 	apt-get update
 	# Installing necessary packages (Squid, apache2-utils for htpassword and dependencies)
@@ -165,7 +163,7 @@ deb8()	{
 }
 
 # Function for Ubuntu
-ubt()	{
+ubt ()	{
 	# Updating package database
 	apt-get update
 	# Installing necessary packages (Squid, apache2-utils for htpassword and dependencies)
@@ -187,7 +185,7 @@ ubt()	{
 }
 
 # Function for Fedora
-fed() {
+fed () {
 	# Installing necessary packages (Squid, httpd-tools for htpasswd and dependencies)
 	yum install squid httpd-tools -y
 	# Asking user to set a username via read and writing it into $usrn
@@ -210,7 +208,7 @@ fed() {
 }
 
 # Default function with information
-info()	{
+info ()	{
 	echo "Squid Proxy Installer $vspiversion Build $vspibuild"
 	echo "You are using builds from the $vbranch branch"
 	echo ""
