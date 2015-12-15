@@ -2,7 +2,7 @@
 
 #########################################
 # Squid Proxy Installer (SPI)           #
-# Version: 2.0 Build 2004               #
+# Version: 2.0 Build 2005               #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Author: Hidden Refuge (© 2014 - 2015) #
 # License: MIT License                  #
@@ -14,7 +14,7 @@
 main()	{
 	# Declaring a few misc variables
 	vspiversion=2.0 # SPI version
-	vspibuild=2004 # SPI build number
+	vspibuild=2005 # SPI build number
 	vsysarch=$(getconf LONG_BIT) # System architecture
 	voption=$1 # Parameter for given options
 	
@@ -213,24 +213,27 @@ info()	{
 	echo "Squid Proxy Installer $vspiversion Build $vspibuild"
 	echo ""
 	echo "Usage: ./spi <option>"
-	echo "Example (Debian 6/7): ./spi -debian"
+	echo "Example (Debian 8): ./spi -jessie"
 	echo ""
 	echo "Options:"
-	echo "-rhel5   <<-- RHEL 5 based OS 32/64 Bit"
-	echo "-rhel6   <<-- RHEL 6 based OS 32/64 Bit"
-	echo "-rhel7   <<-- RHEL 7 based OS 32/64 Bit"
-	echo "-debian  <<-- Debian 6,7 32/64 Bit"
-	echo "-jessie  <<-- Debian 8 32/64 Bit"
-	echo "-ubuntu  <<-- Ubuntu 32/64 Bit"
-	echo "-fedora  <<-- Fedora 32/64 Bit"
+	echo "-rhel5   -- RHEL 5 Linux distributions"
+	echo "-rhel6   -- RHEL 6 Linux distributions"
+	echo "-rhel7   -- RHEL 7 Linux distributions"
+	echo "-debian  -- Debian Squeeze 6 & Wheezy 7"
+	echo "-jessie  -- Debian Jessie 8"
+	echo "-ubuntu  -- Ubuntu"
+	echo "-fedora  -- Fedora"
 	echo ""
-	echo "RHEL 5: CentOS 5, Scientific Linux 5, etc.."
-	echo "RHEL 6: CentOS 6, Scientific Linux 6, etc.."
-	echo "RHEL 7: CentOS 7, Scientific Linux 7, etc.."
+	echo "How to add more users:"
+	echo "Please read"
 	echo ""
-	echo "To add more users use the command below:"
-	echo "Debian/Ubuntu: htpasswd /etc/squid3/passwd username"
-	echo "RHEL/Fedora: htpasswd /etc/squid/passwd username"
+	echo "How to blacklist domains:"
+	echo "Please read"
+	echo ""
+	echo ""
+	echo "(C) 2014 - 2015 by Hidden Refuge"
+	echo "Project Page: https://tny.im/3kW"
+	echo "GitHub Repo: https://github.com/hidden-refuge/spi"
 	echo ""
 }
 
