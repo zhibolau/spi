@@ -2,7 +2,7 @@
 
 #########################################
 # Squid Proxy Installer (SPI)           #
-# Version: 2.0 Build 2002               #
+# Version: 2.0 Build 2003               #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Author: Hidden Refuge (© 2014 - 2015) #
 # License: MIT License                  #
@@ -14,7 +14,7 @@
 main()	{
 	# Declaring a few misc variables
 	vspiversion=2.0 # SPI version
-	vspibuild=2001 # SPI build number
+	vspibuild=2003 # SPI build number
 	vsysarch=$(getconf LONG_BIT) # System architecture
 	voption=$1 # Parameter for given options
 	
