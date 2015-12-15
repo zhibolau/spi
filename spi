@@ -1,20 +1,20 @@
 #!/bin/bash
 
-#########################################
-# Squid Proxy Installer (SPI)           #
-# Version: 2.0 Build 2005               #
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-# Author: Hidden Refuge (© 2014 - 2015) #
-# License: MIT License                  #
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-# Project Page: https://tny.im/3kW      #
-#########################################
+############################################################################
+# Squid Proxy Installer (SPI)                                              #
+# Version: 2.0 Build 2006                                                  #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# Author: Hidden Refuge (© 2014 - 2015)                                    #
+# License: MIT License                                                     #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# Project Page: https://hiddenrefuge.eu.org/projects/squid-proxy-installer #
+############################################################################
 
 # Main function
 main()	{
 	# Declaring a few misc variables
 	vspiversion=2.0 # SPI version
-	vspibuild=2005 # SPI build number
+	vspibuild=2006 # SPI build number
 	vsysarch=$(getconf LONG_BIT) # System architecture
 	voption=$1 # Parameter for given options
 	
@@ -232,9 +232,8 @@ info()	{
 	echo ""
 	echo ""
 	echo "(C) 2014 - 2015 by Hidden Refuge"
-	echo "Project Page: https://tny.im/3kW"
+	echo "Project Page: https://hiddenrefuge.eu.org/projects/squid-proxy-installer"
 	echo "GitHub Repo: https://github.com/hidden-refuge/spi"
-	echo ""
 }
 
 main
