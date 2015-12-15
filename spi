@@ -2,24 +2,26 @@
 
 ############################################################################
 # Squid Proxy Installer (SPI)                                              #
-# Version: 2.0 Build 2006                                                  #
+# Version: 2.0 Build 2007                                                  #
+# Branch: Development (Dev)                                                #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Author: Hidden Refuge (© 2014 - 2015)                                    #
 # License: MIT License                                                     #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Project Page: https://hiddenrefuge.eu.org/projects/squid-proxy-installer #
+# GitHub Repo: https://github.com/hidden-refuge/spi/                       #
 ############################################################################
 
 # Main function
-main()	{
-	# Declaring a few misc variables
-	vspiversion=2.0 # SPI version
-	vspibuild=2006 # SPI build number
-	vsysarch=$(getconf LONG_BIT) # System architecture
-	voption=$1 # Parameter for given options
+# Declaring a few misc variables
+vspiversion=2.0 # SPI version
+vspibuild=2007 # SPI build number
+vbranch=Dev # SPI build branch
+vsysarch=$(getconf LONG_BIT) # System architecture
+voption=$1 # Parameter for given options
 	
-	# Checking $voption and running corresponding function
-	case $voption in
+# Checking $voption and running corresponding function
+case $voption in
 	'-rhel5') # If option "-rhel5" run function rhel5
 		rhel5;; # RHEL 5 Linux distributions such as Red Hat 5, CentOS 5 and et cetera
 	'-rhel6') # If option "-rhel6" run function rhel6
@@ -36,8 +38,7 @@ main()	{
 		fed;; # Fedora 
 	*) # If option empty or non existing run function info
 		info;; # Default, information about available options and et cetera
-	esac
-}
+esac
 
 # Function for iptables rules (CentOS 5 & 6)
 firew1()	{
@@ -211,6 +212,7 @@ fed() {
 # Default function with information
 info()	{
 	echo "Squid Proxy Installer $vspiversion Build $vspibuild"
+	echo "You are using builds from the $vbranch branch"
 	echo ""
 	echo "Usage: ./spi <option>"
 	echo "Example (Debian 8): ./spi -jessie"
@@ -235,5 +237,3 @@ info()	{
 	echo "Project Page: https://hiddenrefuge.eu.org/projects/squid-proxy-installer"
 	echo "GitHub Repo: https://github.com/hidden-refuge/spi"
 }
-
-main
