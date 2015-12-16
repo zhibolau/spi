@@ -2,7 +2,7 @@
 
 ############################################################################
 # Squid Proxy Installer (SPI)                                              #
-# Version: 2.0 Build 2013                                                  #
+# Version: 2.0 Build 2014                                                  #
 # Branch: Development (Dev)                                                #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Author: Hidden Refuge (© 2014 - 2015)                                    #
@@ -14,14 +14,14 @@
 
 # Declaring a few misc variables
 vspiversion=2.0 # SPI version
-vspibuild=2013 # SPI build number
+vspibuild=2014 # SPI build number
 vbranch=Dev # SPI build branch
 vsysarch=$(getconf LONG_BIT) # System architecture
 
 # Function for iptables rules (CentOS 5 & 6)
 firew1 ()	{
 	# Opening default Squid port 3128 for clients to connect
-	iptables -A INPUT -p tcp --dport 3128 -j ACCEPT
+	iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
 	# Saving firewall rules
 	service iptables save
 }
@@ -29,7 +29,7 @@ firew1 ()	{
 # Function for iptables rules (CentOS 7, Debian, Ubuntu, Fedora)
 firew2 ()	{
 	# Opening default Squid port 3128 for clients to connect
-	iptables -A INPUT -p tcp --dport 3128 -j ACCEPT
+	iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
 	# Saving firewall rules
 	iptables-save
 }
