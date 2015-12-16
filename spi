@@ -2,7 +2,7 @@
 
 ############################################################################
 # Squid Proxy Installer (SPI)                                              #
-# Version: 2.0 Build 2014                                                  #
+# Version: 2.0 Build 2015                                                  #
 # Branch: Development (Dev)                                                #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Author: Hidden Refuge (© 2014 - 2015)                                    #
@@ -14,7 +14,7 @@
 
 # Declaring a few misc variables
 vspiversion=2.0 # SPI version
-vspibuild=2014 # SPI build number
+vspibuild=2015 # SPI build number
 vbranch=Dev # SPI build branch
 vsysarch=$(getconf LONG_BIT) # System architecture
 
@@ -51,14 +51,14 @@ rhel5 ()	{
 			64) # 64 bit Squid configuration
 					wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/hidden-refuge/squid-proxy-installer/master/spi-rhel5664.conf --no-check-certificate;;
 	esac
+	# Creating empty blacklist.acl file for further blacklisting entries
+	touch /etc/squid/blacklist.acl
 	# Restarting Squid and enabling its service
 	service squid restart && chkconfig squid on
 	# Turning off httpd and removing it from services (post installation of yum enabled it but we don't need it)
 	service httpd stop && chkconfig httpd off
 	# Running function firew1
 	firew1
-	# Creating empty blacklist.acl file for further blacklisting entries
-	touch /etc/squid/blacklist.acl
 }
 
 # Function for RHEL 6 Linux distributions
@@ -76,12 +76,12 @@ rhel6 ()	{
 			64) # 64 bit Squid configuration
 					wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/hidden-refuge/squid-proxy-installer/master/spi-rhel5664.conf --no-check-certificate;;
 	esac
+	# Creating empty blacklist.acl file for further blacklisting entries
+	touch /etc/squid/blacklist.acl
 	# Restarting Squid and enabling its service
 	service squid restart && chkconfig squid on
 	# Running function firew1
 	firew1	
-	# Creating empty blacklist.acl file for further blacklisting entries
-	touch /etc/squid/blacklist.acl
 }
 
 # Function for RHEL 7 Linux distributions
@@ -94,12 +94,12 @@ rhel7 ()	{
 	htpasswd -c /etc/squid/passwd $usrn
 	# Downloading Squid configuration 
 	wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/hidden-refuge/squid-proxy-installer/master/spi-rhel7.conf --no-check-certificate
+	# Creating empty blacklist.acl file for further blacklisting entries
+	touch /etc/squid/blacklist.acl
 	# Restarting Squid and enabling its service
 	systemctl restart squid.service && systemctl enable squid.service
 	# Running function firew2
 	firew2
-	# Creating empty blacklist.acl file for further blacklisting entries
-	touch /etc/squid/blacklist.acl
 }
 
 # Function for Debian "Squeeze" 6 and Debian "Wheezy" 7
@@ -114,12 +114,12 @@ deb ()	{
 	htpasswd -c /etc/squid3/passwd $usrn
 	# Downloading Squid configuration
 	wget -O /etc/squid3/squid.conf https://raw.githubusercontent.com/hidden-refuge/squid-proxy-installer/master/spi-debian.conf --no-check-certificate
+	# Creating empty blacklist.acl file for further blacklisting entries
+	touch /etc/squid3/blacklist.acl
 	# Restarting Squid and enabling its service
 	service squid3 restart && update-rc.d squid3 defaults
 	# Running function firew2
 	firew2
-	# Creating empty blacklist.acl file for further blacklisting entries
-	touch /etc/squid3/blacklist.acl
 }
 
 # Function for Debian "Jessie" 8
@@ -134,12 +134,12 @@ deb8 ()	{
 	htpasswd -c /etc/squid3/passwd $usrn
 	# Downloading Squid configuration
 	wget -O /etc/squid3/squid.conf https://raw.githubusercontent.com/hidden-refuge/squid-proxy-installer/master/spi-jessie.conf --no-check-certificate
+	# Creating empty blacklist.acl file for further blacklisting entries
+	touch /etc/squid3/blacklist.acl
 	# Restarting Squid and enabling its service
 	service squid3 restart && update-rc.d squid3 defaults
 	# Running function firew2
 	firew2
-	# Creating empty blacklist.acl file for further blacklisting entries
-	touch /etc/squid3/blacklist.acl
 }
 
 # Function for Ubuntu
@@ -156,12 +156,12 @@ ubt ()	{
 	wget -O /etc/squid3/squid.conf https://raw.githubusercontent.com/hidden-refuge/squid-proxy-installer/master/spi-ubuntu.conf --no-check-certificate
 	# Copying squid3.conf from init to init.d for startup script
 	cp /etc/init/squid3.conf /etc/init.d/squid3
+	# Creating empty blacklist.acl file for further blacklisting entries
+	touch /etc/squid3/blacklist.acl	
 	# Restarting Squid and enabling its service
 	service squid3 restart && update-rc.d squid3 defaults
 	# Running function firew2
 	firew2
-	# Creating empty blacklist.acl file for further blacklisting entries
-	touch /etc/squid3/blacklist.acl
 }
 
 # Function for Fedora
@@ -179,12 +179,12 @@ fed () {
 		64) # 64 bit Squid configuration
 			wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/hidden-refuge/squid-proxy-installer/master/spi-rhel7.conf --no-check-certificate;;
 	esac
+	# Creating empty blacklist.acl file for further blacklisting entries
+	touch /etc/squid/blacklist.acl
 	# Restarting Squid and enabling its service
 	systemctl restart squid && systemctl enable squid
 	# Running function firew2
 	firew2
-	# Creating empty blacklist.acl file for further blacklisting entries
-	touch /etc/squid/blacklist.acl
 }
 
 # Default function with information
