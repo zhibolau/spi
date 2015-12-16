@@ -2,7 +2,7 @@
 
 ############################################################################
 # Squid Proxy Installer (SPI)                                              #
-# Version: 2.0 Build 2012                                                  #
+# Version: 2.0 Build 2013                                                  #
 # Branch: Development (Dev)                                                #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Author: Hidden Refuge (© 2014 - 2015)                                    #
@@ -14,7 +14,7 @@
 
 # Declaring a few misc variables
 vspiversion=2.0 # SPI version
-vspibuild=2012 # SPI build number
+vspibuild=2013 # SPI build number
 vbranch=Dev # SPI build branch
 vsysarch=$(getconf LONG_BIT) # System architecture
 
@@ -192,8 +192,8 @@ dinfo ()	{
 	echo "Squid Proxy Installer $vspiversion Build $vspibuild"
 	echo "You are using builds from the $vbranch branch"
 	echo ""
-	echo "Usage: ./spi <option>"
-	echo "Example (Debian 8): ./spi -jessie"
+	echo "Usage: bash spi <option>"
+	echo "Example (Debian 8): bash spi -jessie"
 	echo ""
 	echo "Options:"
 	echo "-rhel5   -- RHEL 5 Linux distributions"
