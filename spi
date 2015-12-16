@@ -2,7 +2,7 @@
 
 ############################################################################
 # Squid Proxy Installer (SPI)                                              #
-# Version: 2.0 Build 2011                                                  #
+# Version: 2.0 Build 2012                                                  #
 # Branch: Development (Dev)                                                #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Author: Hidden Refuge (© 2014 - 2015)                                    #
@@ -14,29 +14,9 @@
 
 # Declaring a few misc variables
 vspiversion=2.0 # SPI version
-vspibuild=2011 # SPI build number
+vspibuild=2012 # SPI build number
 vbranch=Dev # SPI build branch
 vsysarch=$(getconf LONG_BIT) # System architecture
-	
-# Checking $1 and running corresponding function
-case $1 in
-	'-rhel5') # If option "-rhel5" run function rhel5
-		rhel5;; # RHEL 5 Linux distributions such as Red Hat 5, CentOS 5 and et cetera
-	'-rhel6') # If option "-rhel6" run function rhel6
-		rhel6;; # RHEL 6 Linux distributions such as Red Hat 6, CentOS 6 and et cetera
-	'-rhel7') # If option "-rhel7" run function rhel7
-		rhel7;;	# RHEL 7 Linux distributions such as Red Hat 7, CentOS 7 and et cetera
-	'-debian') # If option "-debian" run fuction deb
-		deb;; # Debian "Squeeze" 6 and Debian "Wheezy" 7
-	'-jessie') # If option "-jessie" run function deb8
-		deb8;; # Debian "Jessie" 8
-	'-ubuntu') # If option "-ubuntu" run function ubt
-		ubt;; # Ubuntu
-	'-fedora') # If option "fedora" run function fed
-		fed;; # Fedora 
-	*) # If option empty or non existing run function info
-		dinfo;; # Default, information about available options and et cetera
-esac
 
 # Function for iptables rules (CentOS 5 & 6)
 firew1 ()	{
@@ -235,3 +215,23 @@ dinfo ()	{
 	echo "Project Page: https://hiddenrefuge.eu.org/projects/squid-proxy-installer"
 	echo "GitHub Repo: https://github.com/hidden-refuge/spi"
 }
+
+# Checking $1 and running corresponding function
+case $1 in
+	'-rhel5') # If option "-rhel5" run function rhel5
+		rhel5;; # RHEL 5 Linux distributions such as Red Hat 5, CentOS 5 and et cetera
+	'-rhel6') # If option "-rhel6" run function rhel6
+		rhel6;; # RHEL 6 Linux distributions such as Red Hat 6, CentOS 6 and et cetera
+	'-rhel7') # If option "-rhel7" run function rhel7
+		rhel7;;	# RHEL 7 Linux distributions such as Red Hat 7, CentOS 7 and et cetera
+	'-debian') # If option "-debian" run fuction deb
+		deb;; # Debian "Squeeze" 6 and Debian "Wheezy" 7
+	'-jessie') # If option "-jessie" run function deb8
+		deb8;; # Debian "Jessie" 8
+	'-ubuntu') # If option "-ubuntu" run function ubt
+		ubt;; # Ubuntu
+	'-fedora') # If option "fedora" run function fed
+		fed;; # Fedora 
+	*) # If option empty or non existing run function info
+		dinfo;; # Default, information about available options and et cetera
+esac
