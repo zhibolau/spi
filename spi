@@ -2,8 +2,8 @@
 
 ############################################################################
 # Squid Proxy Installer (SPI)                                              #
-# Version: 2.0 Build 2016                                                  #
-# Branch: Development (Dev)                                                #
+# Version: 2.0 Build 2017                                                  #
+# Branch: Stable                                                           #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Author: Hidden Refuge (© 2014 - 2015)                                    #
 # License: MIT License                                                     #
@@ -14,8 +14,8 @@
 
 # Declaring a few misc variables
 vspiversion=2.0 # SPI version
-vspibuild=2016 # SPI build number
-vbranch=Dev # SPI build branch
+vspibuild=2017 # SPI build number
+vbranch=Stable # SPI build branch
 vsysarch=$(getconf LONG_BIT) # System architecture
 
 # Function for iptables rules (CentOS 5 & 6)
