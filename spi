@@ -211,7 +211,7 @@ dinfo ()	{
 	echo "https://github.com/hidden-refuge/spi/wiki/Domain-blacklist"
 	echo ""
 	echo ""
-	echo "(C) 2014 - 2015 by Hidden Refuge"
+	echo "(C) 2014 - 2016 by Hidden Refuge"
 	echo "GitHub Repo: https://github.com/hidden-refuge/spi"
 	echo "SPI Wiki: https://github.com/hidden-refuge/spi/wiki"
 }
