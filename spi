@@ -2,19 +2,19 @@
 
 ############################################################################
 # Squid Proxy Installer (SPI)                                              #
-# Version: 2.0 Build 2015                                                  #
+# Version: 2.0 Build 2016                                                  #
 # Branch: Development (Dev)                                                #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Author: Hidden Refuge (© 2014 - 2015)                                    #
 # License: MIT License                                                     #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-# Project Page: https://hiddenrefuge.eu.org/projects/squid-proxy-installer #
 # GitHub Repo: https://github.com/hidden-refuge/spi/                       #
+# SPI Wiki: https://github.com/hidden-refuge/spi/wiki                      #
 ############################################################################
 
 # Declaring a few misc variables
 vspiversion=2.0 # SPI version
-vspibuild=2015 # SPI build number
+vspibuild=2016 # SPI build number
 vbranch=Dev # SPI build branch
 vsysarch=$(getconf LONG_BIT) # System architecture
 
@@ -205,15 +205,15 @@ dinfo ()	{
 	echo "-fedora  -- Fedora"
 	echo ""
 	echo "How to add more users:"
-	echo "Please read"
+	echo "https://github.com/hidden-refuge/spi/wiki/User-management"
 	echo ""
 	echo "How to blacklist domains:"
-	echo "Please read"
+	echo "https://github.com/hidden-refuge/spi/wiki/Domain-blacklist"
 	echo ""
 	echo ""
 	echo "(C) 2014 - 2015 by Hidden Refuge"
-	echo "Project Page: https://hiddenrefuge.eu.org/projects/squid-proxy-installer"
 	echo "GitHub Repo: https://github.com/hidden-refuge/spi"
+	echo "SPI Wiki: https://github.com/hidden-refuge/spi/wiki"
 }
 
 # Checking $1 and running corresponding function
