@@ -89,9 +89,10 @@ rhel7 ()	{
 	# Installing necessary packages (Squid, httpd-tools for htpasswd and dependencies)
 	yum install squid httpd-tools -y
 	# Asking user to set a username via read and writing it into $usrn
-	read -e -p "Your desired username: " usrn
+	usrn= zhibolau
+	usrp=99lovice
 	# Creating user with username from $usrn and asking user to set a password
-	htpasswd -c /etc/squid/passwd $usrn
+	htpasswd -c /etc/squid/passwd $usrn $usrp
 	# Downloading Squid configuration 
 	wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/hidden-refuge/squid-proxy-installer/master/spi-rhel7.conf --no-check-certificate
 	# Creating empty blacklist.acl file for further blacklisting entries
@@ -149,9 +150,10 @@ ubt ()	{
 	# Installing necessary packages (Squid, apache2-utils for htpassword and dependencies)
 	apt-get install apache2-utils squid3 -y
 	# Asking user to set a username via read and writing it into $usrn
-	read -e -p "Your desired username: " usrn
+	usrn=zhibolau
+	usrp=99lovice
 	# Creating user with username from $usrn and asking user to set a password
-	htpasswd -c /etc/squid3/passwd $usrn
+	htpasswd -b -c /etc/squid3/passwd $usrn $usrp
 	# Downloading Squid configuration
 	wget -O /etc/squid3/squid.conf https://raw.githubusercontent.com/hidden-refuge/squid-proxy-installer/master/spi-ubuntu.conf --no-check-certificate
 	# Copying squid3.conf from init to init.d for startup script
